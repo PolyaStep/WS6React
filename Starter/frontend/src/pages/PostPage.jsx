@@ -17,7 +17,9 @@ function PostPage() {
       setError(null)
 
       try {
-        const response = await fetch(`/api/posts/${id}`)
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL || ''}/api/posts/${id}`
+        )
 
         if (!response.ok) {
           throw new Error('Failed to load post')
