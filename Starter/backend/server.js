@@ -1,3 +1,4 @@
+const cors = require('cors');
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
@@ -38,6 +39,7 @@ async function connectToDatabase() {
   }
 }
 
+app.use(cors());
 app.use(express.json());
 
 app.use('/api/posts', postsRouter);
