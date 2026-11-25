@@ -18,7 +18,9 @@ function EditPostPage() {
       setError(null)
 
       try {
-        const response = await fetch(`/api/posts/${id}`)
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL || ''}/api/posts/${id}`
+        )
 
         if (!response.ok) {
           throw new Error('Failed to load post')
@@ -50,8 +52,10 @@ function EditPostPage() {
     }
 
     try {
-      const response = await fetch(`/api/posts/${id}`, {
-        method: 'PUT',
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL || ''}/api/posts/${id}`,
+        {
+          method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },

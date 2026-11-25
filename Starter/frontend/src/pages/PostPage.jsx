@@ -44,9 +44,12 @@ function PostPage() {
     setError(null)
 
     try {
-      const response = await fetch(`/api/posts/${id}`, {
-        method: 'DELETE'
-      })
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL || ''}/api/posts/${id}`,
+        {
+          method: 'DELETE'
+        }
+      )
 
       const data = await response.json()
 
